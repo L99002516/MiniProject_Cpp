@@ -3,7 +3,7 @@ all: all.out
 PROJECT_NAME = all
 BUILD = build
 
-TEST_SRC = src/*.cpp
+TEST_SRC = source
 
 TEST_OUTPUT = $(BUILD)/$(PROJECT_NAME).out
 
@@ -22,7 +22,7 @@ cropchild.o : cropchild.cpp cropchild.h cropparent.h
 cropparent.o : cropparent.cpp cropparent.h
 	g++ $< -c
 test:$(BUILD)
-	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) -lcunit
+	g++ $(TEST_SRC) -o $(TEST_OUTPUT) -lcunit
 	./$(TEST_OUTPUT)
 clean:
 	rm -rf *.o *.out
